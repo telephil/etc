@@ -1,0 +1,22 @@
+
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init (merge-pathnames ".quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+#+quicklisp
+(ql:quickload "quickproject")
+#+quicklisp
+(defun make-project (name &optional (deps nil))
+  (let ((project-dir (merge-pathnames (make-pathname :directory
+						     '(:relative "src/lisp")
+						     :name name)
+				      (user-homedir-pathname))))
+    (ensure-directories-exist project-dir)
+    (quickproject:make-project project-dir
+			       :depends-on deps
+			       :name name
+			       :author "Philippe Mechai <philippe.mechai@gmail.com>"
+			       :license "MIT")))
