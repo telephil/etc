@@ -1,6 +1,9 @@
 Personal config
 ===
 
+Screenshot:
+![sshot.jpg](sshot.jpg)
+
 Requirements
 ---
 TODO
@@ -16,3 +19,4 @@ stow sbcl
 stow tmux
 stow vim
 ```
+
