@@ -14,14 +14,16 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 export PLAN9=/usr/local/plan9
+export RACKET_PATH="/Applications/Racket v7.0"
 
 export PATH=$PATH:$(brew --prefix)/bin:$HOME/bin:$HOME/bin/acme:$PLAN9/bin
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$PATH:$RACKET_PATH/bin"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-THEME_FILE="$HOME/.config/colors/base16-shell/base16-ocean.dark.sh"
-[[ -s $THEME_FILE ]] && source $THEME_FILE
+#THEME_FILE="$HOME/.config/colors/base16-shell/base16-ocean.dark.sh"
+#[[ -s $THEME_FILE ]] && source $THEME_FILE
 
 # Completion
 autoload -U compinit
@@ -37,3 +39,5 @@ zstyle ':vcs_info:git:*' formats '[%b] '
 
 autoload -U colors && colors
 PROMPT="%~ \$vcs_info_msg_0_%% "
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
